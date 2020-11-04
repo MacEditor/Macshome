@@ -17,6 +17,7 @@ body{position: relative;}
 	font-family: "notosans", sans-serif;
 	font-size: 28px;
 	color: #0b0b0b;
+	box-shadow: 0 15px 10px rgba(12,12,12,0.45);
 }
 .logo{
 	width: 15%;
@@ -99,6 +100,7 @@ body{position: relative;}
 	width: 0;
 	background-color: #0b0b0b;
 	bottom: 0;
+	-ms-transition: .5s;
 	transition: .5s;
 	border-radius: 8px;
 }
@@ -108,6 +110,7 @@ body{position: relative;}
 	display: inline-block;
 	position: relative;
 	cursor: pointer;
+	-ms-transition: .5s;
 	transition: .5s;
 	overflow-y: hidden;
 
@@ -120,6 +123,7 @@ body{position: relative;}
 	display: block;
 	width: 100%;
 	height: 100%;
+	-ms-transition: all .5s ease-in-out;
 	transition: all .5s ease-in-out;
 }
 .menu li > span:last-child{
@@ -214,15 +218,27 @@ body{position: relative;}
 	color: #6acdb1;
 	cursor: pointer;
 }
-.hidden{display: none;}
 #policy_popup{
 	position: fixed;
-	background-color: rgba(0,0,0,0.8);
 	width: 100%;
 	height: 100%;
 	top: 0;
 	left: 0;
 	z-index: 300;
+	display: none;
+}
+#policy_popup.show{
+	animation: start_ani .8s ease-in-out;
+	display: block;
+}
+.policy_layout{
+	content : '';
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.8);
+	width: 100%;
+	height: 100%;
 }
 .p_popup{
 	font-family: "dream", sans-serif;
@@ -233,9 +249,18 @@ body{position: relative;}
 	left: 50%;
 	transform: translate(-50%, -50%);
 	padding: 3em;
+	min-width: 60%;
+	max-height: 800px;
 	background-color: white;
 	border: 8px solid #6acdb1;
+	overflow-y: scroll;
 }
+.p_popup::-webkit-scrollbar-button:start:decrement,
+.p_popup::-webkit-scrollbar-button:end:increment{
+	background-color: transparent;
+	height: 11px;
+} /* 스크롤 위아래 화살표 */
+.p_popup::-webkit-scrollbar-thumb{background-color: #6acdb1;} /* 스크롤 영역 */
 .p_popup p:nth-of-type(1){
 	padding-bottom: 1em;
 	border-bottom: 2px solid #ccc;
@@ -353,4 +378,4 @@ body{position: relative;}
 .incomebox > div{margin: 10px 150px 25px;}
 /* 메인슬라이드 끝 */
 
-.secondbox{height: 500px;}
+.secondbox{height: 2500px;}
