@@ -4,48 +4,50 @@
 	<meta charset="utf-8">
 	<title>스터디카페</title>
 	<link rel="stylesheet" href="css/reset.css" />
+	<!-- css -->
 	<link rel="stylesheet" href="css/layout.css" />
 	<script type="text/javascript" src="js/jquery-1.12.3.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
+	<div id="progressbar"></div>
+	<div id="scrollPath"></div>
+
 	<nav class="menubar">
 		<a href="#main" class="logo"><img src="img/logo.png" alt="#logo"></a>
-		<div class="menu_wrap">
-			<ul class="sns">
-				<li><a href="#youtube"><img src="img/sns1.png" alt="#snsimg1" width="30" height="35"></a></li>
-				<li><a href="#blog"><img src="img/sns2.png" alt="#snsimg2" width="35" height="35"></a></li>
-				<li><a href="#facebook"><img src="img/sns3.png" alt="#snsimg3" width="30" height="35"></a></li>
-				<li><a href="#instagram"><img src="img/sns4.png" alt="#snsimg4" width="32" height="35"></a></li>
-			</ul>
-			<ul class="menu">
-				<div id="menu_marker"></div>
-				<li class="menu_btn">
-					<span>INTERIOR</span>
-					<span>인테리어</span>
-				</li>
-				<li class="menu_btn">
-					<span>STORY</span>
-					<span>창업스토리</span>
-				</li>
-				<li class="menu_btn">
-					<span>MENU3</span>
-					<span>메뉴3</span>
-				</li>
-				<li class="menu_btn">
-					<span>MENU4</span>
-					<span>메뉴4</span>
-				</li>
-				<li class="menu_btn">
-					<span>MENU5</span>
-					<span>메뉴5</span>
-				</li>
-				<li class="menu_btn">
-					<span>MENU6</span>
-					<span>메뉴6</span>
-				</li>
-			</ul> <!-- menu -->
-		</div>
+		<ul class="menu">
+			<div id="menu_marker"></div>
+			<li class="menu_btn">
+				<span>INTERIOR</span>
+				<span>인테리어</span>
+			</li>
+			<li class="menu_btn">
+				<span>STORY</span>
+				<span>창업스토리</span>
+			</li>
+			<li class="menu_btn">
+				<span>MENU3</span>
+				<span>메뉴3</span>
+			</li>
+			<li class="menu_btn">
+				<span>MENU4</span>
+				<span>메뉴4</span>
+			</li>
+			<li class="menu_btn">
+				<span>MENU5</span>
+				<span>메뉴5</span>
+			</li>
+			<li class="menu_btn">
+				<span>MENU6</span>
+				<span>메뉴6</span>
+			</li>
+		</ul> <!-- menu -->
+		<ul class="sns">
+			<li><a href="#youtube"><img src="img/sns1.png" alt="#snsimg1" width="60" height="65"></a></li>
+			<li><a href="#blog"><img src="img/sns2.png" alt="#snsimg2" width="65" height="65"></a></li>
+			<li><a href="#facebook"><img src="img/sns3.png" alt="#snsimg3" width="60" height="65"></a></li>
+			<li><a href="#instagram"><img src="img/sns4.png" alt="#snsimg4" width="62" height="65"></a></li>
+		</ul>
 	</nav>
 
 	<script type="text/javascript">
@@ -136,27 +138,177 @@
 	</div>
 
 	<div class="main_wrap" style="background-image: url(img/main_img1.jpg);">
-		<div class="main_title">
-			<p class="main_title1">2020년 창업 핵심 키워드 <strong>'무인화'</strong></p>
-			<h1 class="main_title2_4">
-				플랫폼즈<br>
-				<strong>무인 스터디 카페</strong><br>
-				또 다른 명작을 창조하다.
-			</h1>
-			<p class="main_title5">경기 지점, 70평</p>
-			<p class="main_title6">월 순수익 <strong>3,000</strong>만원</p>
-			<div class="incomebox">
-				<p><img src="img/left.png" alt="#left"></p>
-				<div>
-					<p>총매출 3,500만원</p>
-					<p>운영비용 500만원</p>
+		<div class="main_title_box">
+			<div class="main_title">
+				<img class="main_title_btn main_title_left" src="img/left.png" alt="#left">
+				<img class="main_title_btn main_title_right" src="img/right.png" alt="#right">
+				<p class="main_title1">2020년 창업 핵심 키워드 <strong>'무인화'</strong></p>
+				<h1 class="main_title2_4">
+					플랫폼즈<br>
+					<strong>무인 스터디 카페</strong><br>
+					또 다른 명작을 창조하다.
+				</h1>
+				<p class="main_title5">경기 지점, 70평</p>
+				<p class="main_title6">월 순수익 <strong>3,000</strong>만원</p>
+				<div class="incomebox">
+						<p>총매출 3,500만원</p>
+						<p>운영비용 500만원</p>
 				</div>
-				<p><img src="img/right.png" alt="#right"></p>
+				<p class="main_title_last"><img src="img/main_point.png" alt="#mainpointimg"></p>
+			</div> <!-- main_title -->
+		</div> <!-- main_title_box -->
+
+		<div class="slider">
+			<p class="sliderbtn">
+        <span id="slider_stop">Stop ■</span>
+        <span id="slider_play">Auto Play ▶</span>
+      </p>
+			<img src="img/thumbnail_left.png" alt="#thumb_left" id="prev">
+			<div class="main_preview">
+				<img src="img/main_img1.jpg" alt="#small" data-btn="1" class="thumbnail active">
+				<img src="img/main_img2.jpg" alt="#small" data-btn="2" class="thumbnail">
+				<img src="img/main_img3.jpg" alt="#small" data-btn="3" class="thumbnail">
+				<img src="img/main_img4.jpg" alt="#small" data-btn="4" class="thumbnail">
+				<img src="img/main_img5.jpg" alt="#small" data-btn="5" class="thumbnail">
 			</div>
-			<p class="main_title_last"><img src="img/main_point.png" alt="#mainpointimg"></p>
+			<img src="img/thumbnail_right.png" alt="#thumb_right" id="next">
+		</div> <!-- slider -->
+
+	</div> <!-- main_wrap -->
+	<script type="text/javascript"> // 메인슬라이드 기능
+	var prev = document.getElementById('prev'),
+	next = document.getElementById('next'),
+	thumbNail = document.getElementsByClassName('thumbnail'),
+	main_img = document.querySelector('.main_wrap');
+
+	var pagerNum = 0;
+	console.log(pagerNum);
+
+	function bg_play(){
+		main_img.style.backgroundImage = 'url("img/main_img'+[pagerNum+1]+'.jpg")';
+		for(var y= 0; y < thumbNail.length; y++){
+			thumbNail[y].classList.remove('active');
+		}
+		thumbNail[pagerNum].classList.add('active');
+	}
+	function bg_reset(){
+		pagerNum = 0;
+		main_img.style.backgroundImage = 'url("img/main_img'+1+'.jpg")';
+		for(y= 0; y < thumbNail.length; y++){
+			thumbNail[y].classList.remove('active');
+		}
+		thumbNail[0].classList.add('active');
+	}
+
+	let autoTimer = 0;
+	var autoSlide = '';
+	// 다음 버튼
+	next.onclick = function(){
+		if(pagerNum < thumbNail.length-1){
+			pagerNum++;
+			autoTimer = pagerNum;
+			bg_play()
+			console.log(pagerNum);
+		}else{
+			bg_reset()
+		}
+	}
+	// 이전 버튼
+	prev.onclick = function(){
+		if(pagerNum > 0){
+			pagerNum--;
+			autoTimer = pagerNum;
+			bg_play()
+			console.log(pagerNum);
+		}else{
+			pagerNum = thumbNail.length-1;
+			bg_play()
+		}
+	}
+	// 자동 슬라이드
+	function autoslidePlay(){
+		autoSlide = setInterval(function(){
+			autoTimer++
+			if(0 < autoTimer&&pagerNum < thumbNail.length-1){
+				pagerNum = autoTimer;
+				bg_play()
+				console.log(pagerNum);
+			}else{
+				autoTimer = 0;
+				pagerNum = autoTimer;
+				bg_reset()
+			}
+		}, 8000);
+	}
+	autoslidePlay();
+
+	// 갤러리 버튼
+	for(var x = 0; x < thumbNail.length; x++){
+		thumbNail[x].addEventListener('click', function(){
+		var pagerSrc = event.target.getAttribute('src');
+		pagerNum = event.target.getAttribute('data-btn')-1;
+		autoTimer = pagerNum;
+		for(y= 0; y < thumbNail.length; y++){
+			thumbNail[y].classList.remove('active');
+		}
+		console.log(pagerNum);
+		event.target.classList.add('active');
+		main_img.style.backgroundImage = 'url("'+pagerSrc+'")';
+		});
+	}
+
+	// 자동 슬라이드 정지 및 재생
+	var sliderStop = document.getElementById('slider_stop'),
+	sliderPlay = document.getElementById('slider_play'),
+	sliderBtn = document.querySelector('.sliderbtn');
+
+	sliderStop.onclick = function(){
+		sliderStop.classList.add("active");
+		sliderPlay.classList.add("active");
+		sliderBtn.classList.add("active");
+		clearInterval(autoSlide);
+	}
+	sliderPlay.onclick = function(){
+		sliderStop.classList.remove("active");
+		sliderPlay.classList.remove("active");
+		sliderBtn.classList.remove("active");
+		autoslidePlay();
+	}
+	// 메인슬라이드 기능 끝
+	</script>
+
+	<div class="wrap2" style="background-image: url(img/wrap2_bkd.png)">
+		<div class="wrap2_box">
+			<div class="wrap2_info">
+				<span>브랜드 스토리 & 철학</span>
+				<h3>브랜드 스토리 & 철학</h3>
+				<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit,<br>
+				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+				Ut enim ad minim veniam,
+				</p>
+				<br>
+				<p>
+				quis nostrud exercitation ullamco laboris<br>
+				nisi ut aliquip ex ea commodo consequat.<br>
+				Duis aute irure dolor in reprehenderit in voluptate<br>
+				velit esse cillum dolore eu fugiat nulla pariatur.
+				</p>
+				<a href="#">자세히 보기</a>
+			</div>
+			<p class="wrap2_img"><img src="img/wrap2_img.png" alt="#wrap2_img"></p>
 		</div>
 	</div>
 
 	<div class="secondbox"></div>
+
+	<script type="text/ecmascript"> // 스크롤 애니
+	let progress = document.getElementById('progressbar');
+	let totalHeight = document.body.scrollHeight - window.innerHeight;
+	window.onscroll = function(){
+		let progressHeight = (window.pageYOffset / totalHeight) * 100;
+		progress.style.height = progressHeight + "%";
+	}
+	</script>
 </body>
 </html>

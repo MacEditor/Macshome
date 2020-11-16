@@ -78,7 +78,10 @@
 	box-sizing: border-box;
 	-webkit-font-smoothig: antialised;
 } /* 전체 초기화 */
-html, body{height: 100%;}
+html, body{
+	height: 100%;
+	-ms-overflow-style: none;
+}
 iframe, video, img, fieldset, input{
 	margin: 0;
 	padding: 0;
@@ -104,21 +107,39 @@ ul, li{list-style: none;}
 input{outline : none; border : none;}
 
 /* 스크롤 css */
-::-webkit-scrollbar{width: 12px;} /* 스크롤 너비 */
-::-webkit-scrollbar-track{background-color: white;} /* 스크롤 전체범위 */
+::-webkit-scrollbar{width: 0px;}
+#scrollPath{
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 10px;
+	height: 100%;
+	z-index: 255;
+}
+#progressbar{
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 10px;
+	z-index: 255;
+	background-color: #6acdb1;
+}
+
+/* ::-webkit-scrollbar{width: 12px;} 스크롤 너비
+::-webkit-scrollbar-track{background-color: white;} 스크롤 전체범위
 ::-webkit-scrollbar-thumb{
 	background-color: black;
 	transition: all 1s;
-} /* 스크롤 영역 */
+} 스크롤 영역
 ::-webkit-scrollbar-thumb:hover{border: 2px outset white;}
 ::-webkit-scrollbar-button:start:decrement,
 ::-webkit-scrollbar-button:end:increment{
 	background-color: black;
 	height: 11px;
 	border-radius: 50%;
-} /* 스크롤 위아래 화살표 */
+} 스크롤 위아래 화살표
 ::-webkit-scrollbar-button:start:decrement:hover,
-::-webkit-scrollbar-button:end:increment:hover{background-color: white;}
+::-webkit-scrollbar-button:end:increment:hover{background-color: white;} */
 
 @-webkit-keyframes start_ani{
 	0%{opacity: 0;}
