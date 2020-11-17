@@ -62,7 +62,6 @@ body{position: relative;}
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
-
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
@@ -85,8 +84,8 @@ body{position: relative;}
 	display: inline-block;
 	position: relative;
 	cursor: pointer;
-	-ms-transition: .5s;
-	transition: .5s;
+	-ms-transition: all .5s ease-in-out, color .1s linear;
+	transition: all .5s ease-in-out, color .1s linear;
 	overflow-y: hidden;
 }
 .menu li > span:first-child,
@@ -106,6 +105,7 @@ body{position: relative;}
 	font-weight: 500;
 	font-size: 20px;
 }
+.menu li:hover{color: #6acdb1;}
 .menu li:hover > span{transform: translateY(-100%);}
 .sns{
 	height: 50%;
@@ -150,7 +150,7 @@ body{position: relative;}
 #quick_menu{
 	position: absolute;
 	top: 200px;
-	right: 100px;
+	right: 70px;
 	width: 300px;
 	height: auto;
 	padding-bottom: 1.5em;
@@ -331,9 +331,18 @@ body{position: relative;}
 	top: 50%;
 	transform: translateY(-50%);
 	cursor: pointer;
+	transition: left .8s ease-in-out, right .4s ease-in-out;
 }
 .main_title_left{left: -10%}
+.main_title_left:hover{
+	animation: start_ani 1s ease-in-out;
+	left: -12%
+}
 .main_title_right{right: -10%}
+.main_title_right:hover{
+	animation: start_ani 1s ease-in-out;
+	right: -12%
+}
 .main_title > p,
 .main_title > h1,
 .main_title > div{
@@ -520,15 +529,40 @@ body{position: relative;}
 .wrap2_info > a{
 	font-size: 26px;
 	font-weight: 500;
-	color: white;
-	background-color: #6acdb1;
+	position: relative;
+	color: #6acdb1;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 5px solid #6acdb1;
 	text-align: center;
 	width: 336px;
 	height: 80px;
-	line-height: 80px;
+	line-height: 70px;
 	border-radius: 40px;
 	margin-top: 45px;
+	transition: color .5s ease-in-out, background-color .6s ease-in, transform .5s linear, box-shadow .5s linear;
+	overflow: hidden;
+	z-index: 1;
 }
+.wrap2_info > a::before{
+	content : "";
+  position : absolute;
+	top: 0;
+  left: 0;
+  width : 0;
+  height : 100%;
+  background-color: #6acdb1;
+  z-index: -1;
+  transition: .5s;
+}
+.wrap2_info > a:hover{
+	color: white;
+	transform: translateX(15px);
+	background-color: #6acdb1;
+	box-shadow: -15px 0 5px rgba(0,0,0,0.45);
+}
+.wrap2_info > a:hover::before{width : 180%;}
 .wrap2_img{
 	float: right;
 	width: 30%;
@@ -588,4 +622,141 @@ body{position: relative;}
 }
 /* 3번째 페이지 끝 */
 
-.emptybox{height: 1000px;}
+/* 4번째 페이지 시작 */
+.wrap4{
+	background-color: #f2f2f2;
+	width: 100%;
+	height: 636px;
+	font-family: "dream", sans-serif;
+	color: #2a2a2a;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding-top: 45px;
+}
+.wrap4_title{
+	font-size: 24px;
+	font-weight: 400;
+	text-align: center;
+}
+.wrap4 h3{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+.wrap4 h3 span{padding: 0 35px;}
+.wrap4_title::after,
+.wrap4_title::before{
+	content: '';
+	display: inline-block;
+	height: 3px;
+	background-color: #2a2a2a;
+
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex-grow: 1;
+}
+.wrap4_box{
+	margin-top: 70px;
+	color: white;
+
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+.wrap4_box2{
+	position: relative;
+	width: 16%;
+	max-width: 292px;
+	height: 402px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: 2;
+	cursor: pointer;
+}
+.wrap4_box2 span{
+	display: inline-block;
+	position: absolute;
+	z-index: -1;
+	background-color: rgba(0,0,0,0.45);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: background-color .5s ease-in-out;
+}
+.wrap4_box2:hover span{background-color: rgba(0,0,0,0.8);}
+.wrap4_box2::before,
+.wrap4_box2::after,
+.wrap4_box2 > div::before,
+.wrap4_box2 > div::after{
+	content: '';
+	position: absolute;
+	background-color: rgba(255,255,255,0.8);
+	transition: all .3s ease-in-out;
+	z-index: 3;
+}
+.wrap4_box2::before,
+.wrap4_box2 > div::before{
+	width: 0;
+	height: 6px;
+}
+.wrap4_box2::after,
+.wrap4_box2 > div::after{
+	width: 6px;
+	height: 0;
+}
+.wrap4_box2::before{top: 0; left: 0;}
+.wrap4_box2::after{top: 0; right: 0; transition-delay: .3s;}
+.wrap4_box2 > div::before{bottom: 0; right: 0; transition-delay: .6s;}
+.wrap4_box2 > div::after{bottom: 0; left: 0; transition-delay: .9s;}
+.wrap4_box2:hover::before,
+.wrap4_box2:hover > div::before{
+	width: 100%;
+	box-shadow: 0 0 15px white;
+	background-color: rgba(255,255,255,1);
+}
+.wrap4_box2:hover::after,
+.wrap4_box2:hover > div::after{
+	height: 100%;
+	box-shadow: 0 0 15px white;
+	background-color: rgba(255,255,255,1);
+}
+.wrap4_box2 > div{
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-orient: vertical;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+.wrap4_info{
+	font-size: 16px;
+	font-weight: 400;
+	text-align: center;
+}
+.wrap4_box2 > div p:nth-of-type(2){margin-top: 30px;}
+.wrap4_box2 > div p:nth-of-type(3){margin-top: 10px;}
+.wrap4_box2 > div p{transition: transform .5s ease-in-out;}
+.wrap4_box2:hover > div p{transform: scale(1.1);}
+/* 4번째 페이지 끝 */

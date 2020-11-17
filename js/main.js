@@ -6,7 +6,7 @@ $(document).ready(function(){
       $(quick_menu).css({
         'top' : scroll_position + 200 + 'px'
       });
-      console.log(scroll_position);
+      // console.log(scroll_position);
   });
 
   // 개인정보 수집이용 동의 활성화
