@@ -1,12 +1,37 @@
 $(document).ready(function(){
+  function resize_quick(){
+    if($(window).width() < 1025){
+      $(quick_menu).css({
+        'top' : 'auto'
+      });
+    }
+  }
   // 창업문의 이동
   $(window).on('scroll',function(){
-    var quick_menu = document.querySelector('#quick_menu');
+    if($(window).width() > 1024){
+      var quick_menu = document.querySelector('#quick_menu');
       var scroll_position = $(window).scrollTop();
       $(quick_menu).css({
         'top' : scroll_position + 200 + 'px'
       });
       // console.log(scroll_position);
+  	}else{
+      resize_quick()
+    }
+  });
+  // 창업문의 반응형
+  $(window).resize(resize_quick());
+
+  // 창업문의 종료
+  let quick_switch = true;
+  $(".quick_title > span, .quick_close_m").click(function(){
+    if(quick_switch == true){
+      $("#quick_menu").addClass('active');
+      quick_switch = false;
+    }else{
+      $("#quick_menu").removeClass('active');
+      quick_switch = true;
+    }
   });
 
   // 개인정보 수집이용 동의 활성화

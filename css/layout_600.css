@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+/* 반응형 600 시작 */
+@media all and (max-width: 600px){
+/* 메뉴 시작 */
+.menubar{
+	height: 80px;
+	font-size: 18px;
+}
+.logo{width: 25%;}
+.logo img{
+	width: 70%;
+	min-width: auto;
+}
+.menu{display: none;}
+.sns{display: none;}
+/* 메뉴 끝 */
+
+/* 창업문의 고정 시작 */
+#quick_menu{height: 199px;}
+#quick_menu.active{bottom: -157px;}
+.quick_close_m{
+	border-radius: 0 6px 0 0;
+	width: 42px;
+	height: 42px;
+}
+.quick_menu_m{
+	height: 157px;
+	padding: 8px 15px;
+}
+.quick_menu_call{width: 172px; height: 23px; margin-bottom: 10px;}
+.quick_menu_info{
+	width: 65%;
+	height: 105px;
+}
+.quick_info > input,
+.quick_submit > input{border-radius: 7px;}
+.quick_info > input{
+	margin-left: 0;
+	height: 51px;
+}
+.quick_info:nth-of-type(1) > input,
+.quick_info:nth-of-type(2) > input{width: 49.5%;}
+.quick_info:nth-of-type(2) > input{margin-left: 1%;}
+.quick_info:nth-of-type(3) > input{width: 100%; margin-top: 3px;}
+.quick_submit > input{width: 98%; height: 100%; font-size: 1.3em;}
+.quick_info > input{font-size: 1.3em;}
+.quick_submit{
+	width: 35%;
+	height: 105px;
+}
+.policy_wrap{top: -32px;}
+.policy_chk_box{margin-right: 2px;}
+.policy_chk_box > input{
+	width: 16px;
+	height: 16px;
+}
+.policy{font-size: 15px;}
+.p_popup{
+	min-width: 95%;
+	max-height: 450px;
+	font-size: 15px;
+	padding: 2em;
+}
+.p_popup_close{font-size: 15px;}
+/* 창업문의 고정 끝 */
+
+/* 메인슬라이드 시작 */
+.main_wrap{max-height: 800px;}
+.main_title_box{
+	width: 100%;
+	min-width: none;
+}
+/* 메인슬라이드 끝 */
+
+/* 페이지 공통 */
+.subtitle_info{font-size: 17px;}
+.title_info{font-size: 34px;}
+.normal_info{font-size: 15px;}
+.normal_info > br{display: none;}
+.br_m{display: block;}
+/* 2번째 페이지 시작 */
+.wrap2_box{
+	width: 100%;
+	padding: 0 50px;
+	text-align: center;
+}
+.wrap2_info{width: 100%;}
+.wrap2_info > p:nth-of-type(1){margin-top: 15px;}
+.wrap2_info > a{margin: 30px auto 0;}
+.wrap2_info > a::before{
+  width : 100%;
+  height : 0;
+}
+.wrap2_info > a:hover{
+	transform: translateY(15px);
+	box-shadow: 0 -15px 5px rgba(0,0,0,0.45);
+}
+.wrap2_info > a:hover::before{height : 180%;}
+.wrap2_img{display: none;}
+/* 2번째 페이지 끝 */
+
+/* 3번째 페이지 시작 */
+.wrap3_info{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 20px;
+}
+/* 3번째 페이지 끝 */
+
+/* 4번째 페이지 시작 */
+.wrap4_title{font-size: 20px;}
+.wrap4 h3 span{padding: 0 15px;}
+/* 4번째 페이지 끝 */
+} /* 반응형 600 끝 */

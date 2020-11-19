@@ -6,7 +6,11 @@
 	<link rel="stylesheet" href="css/reset.css" />
 	<!-- css -->
 	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="css/layout_1024.css" />
+	<link rel="stylesheet" href="css/layout_600.css" />
+	<!-- jquery -->
 	<script type="text/javascript" src="js/jquery-1.12.3.js"></script>
+	<!-- js -->
 	<script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
@@ -16,7 +20,7 @@
 	<nav class="menubar">
 		<a href="#main" class="logo"><img src="img/logo.png" alt="#logo"></a>
 		<ul class="menu">
-			<div id="menu_marker"></div>
+			<li id="menu_marker"></li>
 			<li class="menu_btn">
 				<span>INTERIOR</span>
 				<span>인테리어</span>
@@ -50,7 +54,7 @@
 		</ul>
 	</nav>
 
-	<script type="text/javascript">
+	<script type="text/javascript"> // 메뉴 애니
 	var marker = document.querySelector('#menu_marker');
 	var item = document.querySelectorAll('.menu_btn');
 
@@ -73,44 +77,54 @@
 	</script>
 
 	<section id="quick_menu">
-		<p class="quick_title">창업문의 <span></span></p>
-		<form name="smsForm" id="smsForm_fixed" method="POST" action="/test/sms_send_utf8.php" target="smsResult" onsubmit="return sms_submit_main(this);" autocomplete="off">
-			<input type="hidden" name="url" value="<?=$PHP_SELF?>">
-			<input type="hidden" name="type" value="SMS상담">
+		<span class="quick_close_m"><img src="img/close.png" alt="#quick_mobile_close"></span>
+		<div class="quick_menu_m">
+			<p class="quick_title">
+				<strong>창업문의</strong>
+				<span>
+					<img src="img/close.png" alt="#quick_close">
+					<img src="img/call_open.png" alt="#quick_open">
+				</span>
+			</p>
+			<form name="smsForm" id="smsForm_fixed" method="POST" action="/test/sms_send_utf8.php" target="smsResult" onsubmit="return sms_submit_main(this);" autocomplete="off">
+				<input type="hidden" name="url" value="<?=$PHP_SELF?>">
+				<input type="hidden" name="type" value="SMS상담">
 
-			<!-- 빠른 상담신청 시작 -->
-			<a class="quick_menu_call" href="tel:1644-5471">
-				<img src="img/call.png" alt="#quickcall_img" width="200" height="142"/>
-			</a>
-			<div class="quick_menu_box">
-				<fieldset>
-					<div class="quick_menu_info">
-							<p class="quick_info quick_info1">
-								<input type="text" name="od_name" size="15" maxlength="30" class="text" placeholder="성함">
-							</p>
-							<p class="quick_info quick_info2">
-								<input type="text" name="od_hp" size="15" maxlength="30" onkeydown="return onlyNumber(event)" onkeyup="removeChar(event)" class="text" placeholder="연락처">
-							</p>
-							<p class="quick_info quick_info3">
-								<input type="text" name="od_area" size="15" maxlength="30" class="text" placeholder="지역">
-							</p>
-					</div>
-					<div class="policy_wrap">
-						<p class="policy_chk_box">
-							<input id="fixed_agree" type="checkbox" name="od_agree" checked="checked">
-						</p>
-						<div class="policy">
-							<label for="fixed_agree">개인정보 수집이용 동의</label> <span class="policybtn">(보기)</span>
+				<!-- 빠른 상담신청 시작 -->
+				<a class="quick_menu_call" href="tel:1644-5471">
+					<img src="img/call.png" alt="#quickcall_img" width="200" height="142"/>
+					<img src="img/call_m.png" alt="#quickcall_img_m" width="232" height="35"/>
+				</a>
+				<div class="quick_menu_box">
+					<fieldset>
+						<div class="quick_menu_info">
+								<p class="quick_info quick_info1">
+									<input type="text" name="od_name" size="15" maxlength="30" class="text" placeholder="성함">
+								</p>
+								<p class="quick_info quick_info2">
+									<input type="text" name="od_area" size="15" maxlength="30" class="text" placeholder="지역">
+								</p>
+								<p class="quick_info quick_info3">
+									<input type="text" name="od_hp" size="15" maxlength="30" onkeydown="return onlyNumber(event)" onkeyup="removeChar(event)" class="text" placeholder="연락처">
+								</p>
 						</div>
-					</div>
-					<p class="quick_submit">
-						<input type="submit" value="문의신청">
-					</p>
-				</fieldset>
-			</div>
-			<!-- 빠른 상담신청 끝 -->
-		</form>
-		<iframe name="smsResult" id="smsResult_fixed" height="0" style="display: none;"></iframe>
+						<div class="policy_wrap">
+							<p class="policy_chk_box">
+								<input id="fixed_agree" type="checkbox" name="od_agree" checked="checked">
+							</p>
+							<div class="policy">
+								<label for="fixed_agree">개인정보 수집이용 동의</label> <span class="policybtn">(보기)</span>
+							</div>
+						</div>
+						<p class="quick_submit">
+							<input type="submit" value="문의신청">
+						</p>
+					</fieldset>
+				</div>
+				<!-- 빠른 상담신청 끝 -->
+			</form>
+			<iframe name="smsResult" id="smsResult_fixed" height="0" style="display: none;"></iframe>
+		</div>
 	</section> <!-- quick_menu -->
 
 	<div id="policy_popup">
@@ -305,7 +319,7 @@
 		<div class="wrap3_info_box">
 			<div class="wrap3_info flex_info">
 				<span class="subtitle_info">창업 경력 OO년</span>
-				<h3 class="title_info">OO년 경험으로 직접 만든 인테리어</h3>
+				<h3 class="title_info">OO년 경험으로<br class="br_m"> 직접 만든 인테리어</h3>
 				<p class="normal_info">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit,<br>
 				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
