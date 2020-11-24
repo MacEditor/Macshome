@@ -1,37 +1,19 @@
 @charset "utf-8";
 
 /* 반응형 1024 시작 */
-@media all and (max-width: 1024px){
+@media all and (min-width: 601px) and (max-width: 1024px){
 /* 메뉴 시작 */
 .menubar{
-	height: 80px;
+	height: 120px;
 	font-size: 18px;
 }
-.logo{width: 17%;}
+.logo{width: 25%;}
 .logo img{
-	width: 65%;
+	width: 70%;
 	min-width: auto;
 }
-.menu{
-	width: 50%;
-	margin-left: 5%;
-}
-.menu .menu_btn{-webkit-box-flex: 1; -ms-flex: 1; flex-grow: 1;}
-.menu .menu_btn > span:first-child,
-.menu .menu_btn > span:last-child{padding-top: 7%;}
-.menu .menu_btn > span:last-child{
-	padding-top: 11%;
-	font-size: 14px;
-}
-.sns{
-	height: 50%;
-	padding-right: 10px;
-}
-.sns li{margin-left: 10px;}
-.sns li img{
-	width: 80%;
-	min-width: 17px;
-}
+.menu{display: none;}
+.sns{display: none;}
 /* 메뉴 끝 */
 
 /* 창업문의 고정 시작 */
@@ -136,7 +118,7 @@
 .p_popup{
 	min-width: 95%;
 	height: 80%;
-	max-height: 900px;
+	max-height: none;
 	font-size: 24px;
 	padding: 2em;
 }

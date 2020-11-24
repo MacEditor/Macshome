@@ -153,6 +153,77 @@
 		</div>
 	</div>
 
+	<script type="text/javascript">
+	function sms_submit(f)
+	{
+	    if (f.od_agree.checked == false) {
+	        alert('개인정보 동의를 체크하여 주십시오.');
+	        return false;
+	    }
+
+	    if (f.od_name.value == "") {
+	        alert('성함을 입력하세요.');
+	        f.od_name.value = "";
+	        f.od_name.focus();
+	        return false;
+	    }
+
+	    if (f.od_hp.value == "") {
+	        alert('연락처를 입력하세요.');
+	        f.od_hp.value = "";
+	        f.od_hp.focus();
+	        return false;
+	    }
+
+	    if (f.od_pcnum.value == "") {
+	        alert('희망PC대수를 입력하세요.');
+	        f.od_pcnum.value = "";
+	        f.od_pcnum.focus();
+	        return false;
+	    }
+
+	    if (f.od_area.value == "") {
+	        alert('희망지역을 입력하세요.');
+	        f.od_area.value = "";
+	        f.od_area.focus();
+	        return false;
+	    }
+
+	    if (f.od_memo.value == "") {
+	        alert('남기는 글을 입력하세요.');
+	        f.od_memo.value = "";
+	        f.od_memo.focus();
+	        return false;
+	    }
+
+	    alert('상담신청이 완료되었습니다. 확인후 연락드리겠습니다. \n(정확하지 않은 정보는 상담이 누락될수도 있습니다.)');
+	    // $(location).attr("href","alert.html");
+		location.reload();
+	    return true;
+
+	}
+
+	function onlyNumber(event)
+	{
+	    event = event || window.event;
+	    var keyID = (event.which) ? event.which : event.keyCode;
+	    if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 )
+	        return;
+	    else
+	        return false;
+	}
+
+	function removeChar(event)
+	{
+	    event = event || window.event;
+	    var keyID = (event.which) ? event.which : event.keyCode;
+	    if ( keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 )
+	        return;
+	    else
+	        event.target.value = event.target.value.replace(/[^0-9]/g, "");
+	}
+	</script>	
+
 	<div class="main_wrap" style="background-image: url(img/main_img1.jpg);">
 		<div class="main_title_box">
 			<div class="main_title">
