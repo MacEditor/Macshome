@@ -1,6 +1,6 @@
 $(document).ready(function(){
   function resize_quick(){
-    if($(window).width() < 1025){
+    if($(window).width() < 1281){
       $(quick_menu).css({
         'top' : 'auto'
       });
@@ -8,7 +8,7 @@ $(document).ready(function(){
   }
   // 창업문의 이동
   $(window).on('scroll',function(){
-    if($(window).width() > 1024){
+    if($(window).width() > 1280){
       var quick_menu = document.querySelector('#quick_menu');
       var scroll_position = $(window).scrollTop();
       $(quick_menu).css({
