@@ -256,7 +256,7 @@
 	width: 100%;
 	min-width: 580px;
 	height: 100%;
-	padding-top: 120px;
+	padding-top: 0;
 }
 .main_title{
 	width: 80%;
@@ -271,10 +271,10 @@
 	width: 46px;
 	height: auto;
 }
-.main_title_left{left: -1%}
-.main_title_left:hover{left: -3%}
-.main_title_right{right: -1%}
-.main_title_right:hover{right: -3%}
+.main_title_left{left: -5%}
+.main_title_left:hover{left: -7%}
+.main_title_right{right: -5%}
+.main_title_right:hover{right: -7%}
 .main_title1{font-size: 46px;}
 .main_title2_4{font-size: 69px;}
 .main_title5{
