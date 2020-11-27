@@ -188,7 +188,7 @@
 	-webkit-box-orient: vertical;
 	-ms-flex-direction: column;
 	flex-direction: column;
-  position : absolute;
+	
   right: 5px;
   bottom: 50px;
 }

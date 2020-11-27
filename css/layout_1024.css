@@ -251,12 +251,12 @@
 /* 창업문의 고정 끝 */
 
 /* 메인슬라이드 시작 */
-.main_wrap{max-height: 800px;}
+.main_wrap{height: 1400px;}
 .main_title_box{
-	width: 55%;
+	width: 100%;
 	min-width: 580px;
 	height: 100%;
-	margin: 0 auto;
+	padding-top: 120px;
 }
 .main_title{
 	width: 80%;
@@ -266,15 +266,20 @@
 	width: auto;
 	height: 50px;
 }
+.main_title_left,
+.main_title_right{
+	width: 46px;
+	height: auto;
+}
 .main_title_left{left: -1%}
 .main_title_left:hover{left: -3%}
 .main_title_right{right: -1%}
 .main_title_right:hover{right: -3%}
-.main_title1{font-size: 25px;}
-.main_title2_4{font-size: 38px;}
+.main_title1{font-size: 46px;}
+.main_title2_4{font-size: 69px;}
 .main_title5{
 	margin-top: 35px;
-	font-size: 20px;
+	font-size: 37px;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -285,40 +290,31 @@
 	-ms-flex-pack: center;
 	justify-content: center;
 }
-.main_title5::after{width: 250px;}
+.main_title5::after{width: 480px;}
 .main_title6{
-	font-size: 28px;
+	font-size: 50px;
 	margin-top: 25px;
 }
-.main_title6 > strong{font-size: 58px;}
+.main_title6 > strong{font-size: 101px;}
 .incomebox{
-	font-size: 20px;
+	font-size: 37px;
 	margin-top: 10px;
 }
 .main_title_last{margin-top: 25px;}
+.main_title_last img{
+	width: 543px;
+	height: auto;
+}
 /* 메인슬라이드 끝 */
 .slider{
-	-webkit-box-orient: vertical;
-	-ms-flex-direction: column;
-	flex-direction: column;
-  position : absolute;
-  right: 5px;
+	margin: 0 auto;
+  right: 0;
+	left: 0;
   bottom: 50px;
-}
-#prev,
-#next{transform: rotate(90deg);}
-.main_preview{
-	-webkit-box-orient: vertical;
-	-ms-flex-direction: column;
-	flex-direction: column;
-  align-items : center;
-  margin : 10px 0;
-}
-.main_preview .thumbnail{
-  width : 100px;
-  margin : 10px 0;
-  opacity : .4;
-  cursor : pointer;
+
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
 }
 
 /* 페이지 공통 */
