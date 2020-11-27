@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /* 반응형 1024 시작 */
-@media all and (min-width: 601px) and (max-width: 1280px){
+@media all and (min-width: 1025px) and (max-width: 1280px){
 /* 메뉴 시작 */
 .menubar{
 	height: 80px;

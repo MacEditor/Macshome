@@ -3,9 +3,14 @@
 /* 반응형 1024 시작 */
 @media all and (min-width: 601px) and (max-width: 1024px){
 /* 메뉴 시작 */
+.menu_more_m_close,
 .menubar{
 	height: 120px;
 	font-size: 18px;
+}
+.menu_more_m_close{
+	right: 0;
+	width: 140px;
 }
 .logo{width: 25%;}
 .logo img{
@@ -14,6 +19,126 @@
 }
 .menu{display: none;}
 .sns{display: none;}
+.menu_more_m_close2,
+.menuicon_m{
+	width: 80px;
+	height: 80px;
+	cursor: pointer;
+	position: relative;
+
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-orient: vertical;
+	-ms-flex-direction: column;
+	flex-direction: column;
+} /* 메뉴 모바일 */
+.menuicon_m{margin-right: 30px;} /* 메뉴 모바일 */
+.menu_more_m_close3,
+.menu_more_m_close3::after,
+.menu_more_m_close3::before,
+.menu_slash_m,
+.menu_slash_m::after,
+.menu_slash_m::before{
+	position: absolute;
+	display: inline-block;
+	content: '';
+	width: 60px;
+	height: 8px;
+	border-radius: 20px;
+	box-shadow: inset 0 0 0 50px #0b0b0b;
+	transition: transform .4s ease-in-out, box-shadow .5s ease-in-out;
+}
+.menu_more_m_close3,
+.menu_more_m_close3::after,
+.menu_more_m_close3::before{box-shadow: inset 0 0 0 50px white;}
+.menu_slash_m::after{transform: translateY(-17px);}
+.menu_slash_m::before{transform: translateY(17px);}
+.menu_more_m_close3,
+.menuicon_m.active .menu_slash_m{
+	transform: translateX(-80px);
+	box-shadow: none;
+}
+.menu_more_m_close3::after,
+.menuicon_m.active .menu_slash_m::after{transform: translateX(80px) translateY(0) rotate(45deg);}
+.menu_more_m_close3::before,
+.menuicon_m.active .menu_slash_m::before{transform: translateX(80px) translateY(0) rotate(-45deg);}
+.menu_more_m{
+	opacity: 0;
+	top: -100%;
+	left: 0;
+	position: fixed;
+	z-index: 1000;
+	background-color: rgba(11,11,11,0.8);
+	width: 100%;
+	height: 100%;
+	transition: all .8s ease-in-out;
+} /* 메뉴 모바일 더보기 */
+.menu_more_m.active{
+	opacity: 1;
+	display: inline-block;
+	top: 0;
+}
+.menu_box_m{
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 600px;
+
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+} /* 메뉴 모바일 더보기 리스트 */
+.menu_btn_m{
+	color: white;
+	text-align: center;
+	margin-top: 25px;
+	cursor: pointer;
+}
+.menu_btn_m:nth-of-type(1){margin-top: 0;}
+.menu_btn_m > span:nth-of-type(1){font-family: "notosans", sans-serif; font-size: 34px;}
+.menu_btn_m > span:nth-of-type(2){font-family: "dream", sans-serif; font-size: 23px;}
+.sns_m{
+	margin-top: 55px;
+
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+.sns_m li{
+	margin-left: 45px;
+	height: 58px;
+}
+.sns_m li:nth-of-type(1){margin-left: 0;}
+.sns_m li img{
+	width: auto;
+	height: 100%;
+	max-height: 105px;
+}
 /* 메뉴 끝 */
 
 /* 창업문의 고정 시작 */

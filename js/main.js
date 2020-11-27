@@ -49,4 +49,23 @@ $(document).ready(function(){
   p_popup_btn.onclick = function(){
     p_popup.classList.add('show');
   }
+
+  // 햄버거 메뉴 활성화
+  function more_resize(){
+    if($(window).width() > 1024){
+      $(".menu_more_m").removeClass("active");
+    }
+  }
+  $(".menuicon_m").click(function(){
+    if($(window).width() < 1025){
+      $(".menu_more_m").addClass("active");
+      $(this).addClass("active");
+    }else{
+      more_resize();
+    }
+  });
+  $(".menu_more_m_close").click(function(){
+    $(".menu_more_m").removeClass("active");
+    $(".menuicon_m").removeClass("active");
+  });
 });
