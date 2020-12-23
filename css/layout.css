@@ -10,7 +10,7 @@ body{position: relative;}
 	right: 0;
 	margin: 0 auto;
 	top: 0;
-	z-index: 15;
+	z-index: 256;
 	white-space: nowrap;
 	font-family: "notosans", sans-serif;
 	font-size: 26px;
@@ -561,6 +561,16 @@ body{position: relative;}
 	width: 70%;
 	height: 100%;
 	color: #2a2a2a;
+
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-orient: vertical;
+	-ms-flex-direction: column;
+	flex-direction: column;
 }
 .wrap2_info > p:nth-of-type(1){margin-top: 25px;}
 .wrap2_info > a{

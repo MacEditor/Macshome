@@ -80,7 +80,7 @@
 } /* 전체 초기화 */
 html, body{
 	height: 100%;
-	-ms-overflow-style: none;
+	-ms-overflow-style: none; /* ms 스크롤 없애기 */
 }
 iframe, video, img, fieldset, input{
 	margin: 0;
