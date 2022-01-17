@@ -1,0 +1,162 @@
+@charset "utf-8";
+
+/* 폰트 */
+@font-face{
+	font-family: "Lato";
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+} /* "Lato", sans-serif; */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background : #fefbe8 url(chunsik.jpg) no-repeat left center;
+  background-size : cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+}
+
+h1{margin-top: 50px;}
+
+.box{
+  position: relative;
+  border-radius: 15px;
+  margin: 70px 0;
+  max-width : 100%;
+}
+
+.music-info {
+  background-color: rgba(242,161,142, 1);
+  border-radius: 15px 15px 0 0;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: calc(100% - 40px);
+  padding: 10px 10px 10px 150px;
+  opacity: 0;
+  transform: translateY(0%);
+  transition: transform 0.5s ease-in, opacity 1s ease-in-out;
+  z-index: 9;
+  border : solid 3px #3e3725;
+  border-bottom : none;
+  color : #3e3725;
+}
+
+.music-info.play {
+  opacity: 1;
+  transform: translateY(-100%);
+}
+
+.music-info h4 {margin: 0;}
+
+.progress-container {
+  background: #fefbe8;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+  height: 4px;
+  width: 100%;
+}
+
+.progress {
+  background-color: #ffd283;
+  border-radius: 5px;
+  height: 100%;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.time{font-size : 9px;}
+
+.time strong:first-child{float : left;}
+.time strong:last-child{float : right;}
+
+.music-container {
+  background-color: #ffd283;
+  border-radius: 15px;
+  box-shadow : 5px 5px 0px #b49068;
+  display: flex;
+  padding: 20px 30px;
+  position: relative;
+  z-index: 10;
+  border : solid 3px #3e3725;
+  box-sizing : border-box;
+  max-width : 100%;
+}
+
+.img-container {
+  position: relative;
+  width : 110px;
+  border-radius: 0 0 520px 520px;
+  box-shadow : 3px 3px 0px #b49068;
+}
+
+.img-container img {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin : 0 auto;
+  border : solid 3px #3e3725;
+  animation: rotate 3s linear infinite;
+
+  animation-play-state: paused;
+}
+
+.music-container.play .img-container img {
+  animation-play-state: running;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.action-btn {
+  background-color: transparent;
+  border: 0;
+  color: #ff9c7c;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px;
+  margin: 0 20px;
+  -webkit-text-stroke: 3px #3e3725;
+  text-shadow : 3px 3px 0px #b49068;
+}
+
+.action-btn.action-btn-big {
+  color: white;
+  font-size: 30px;
+  -webkit-text-stroke: 3px #3e3725;
+}
+
+.action-btn:focus{outline: 0;}
+
+.talk{
+  margin-top : 30px;
+  font-size : 20px;
+  text-align : center;
+}
