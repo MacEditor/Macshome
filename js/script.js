@@ -1,5 +1,6 @@
 const wrapper = document.querySelector(".wrapper"),
-musicAni = wrapper.querySelector(".img-area .chunsik"),
+musicAni1 = wrapper.querySelector(".img-area .chunsik"),
+musicAni2 = wrapper.querySelector(".song-details .chunsik"),
 musicImg = wrapper.querySelector(".img-area .cover-img"),
 musicName = wrapper.querySelector(".song-details .name"),
 musicArtist = wrapper.querySelector(".song-details .artist"),
@@ -32,7 +33,8 @@ function loadMusic(indexNumb){
 //play music function
 function playMusic(){
   wrapper.classList.add("paused");
-  musicAni.classList.add("paused");
+  musicAni1.classList.add("paused");
+  musicAni2.classList.add("paused");
   playPauseBtn.querySelector("i").innerText = "pause";
   mainAudio.play();
 }
@@ -40,7 +42,8 @@ function playMusic(){
 //pause music function
 function pauseMusic(){
   wrapper.classList.remove("paused");
-  musicAni.classList.remove("paused");
+  musicAni1.classList.remove("paused");
+  musicAni2.classList.remove("paused");
   playPauseBtn.querySelector("i").innerText = "play_arrow";
   mainAudio.pause();
 }
@@ -81,6 +84,40 @@ prevBtn.addEventListener("click", ()=>{
 //next music button event
 nextBtn.addEventListener("click", ()=>{
   nextMusic();
+});
+
+//music touch event
+$(document).ready(function(){
+  var mstartX = 0, mendX = 0,mstartY = 0, mendY = 0;
+  $(".img-area").on('mousedown',function(event){
+    mstartX = event.pageX;
+    mstartY = event.pageY;
+  });
+  $(".img-area").on('mouseup',function(event){
+    mendX=event.pageX;
+    mendY=event.pageY;
+
+  if(mstartX-mendX>50){
+    nextMusic();
+  }else if(mendX-mstartX>50){
+    prevMusic();
+  }
+  });
+
+  var startX,startY, endX,endY;
+	$(".img-area").on('touchstart',function(event){
+		startX = event.originalEvent.changedTouches[0].screenX;
+		startY = event.originalEvent.changedTouches[0].screenY;
+	});
+	$(".img-area").on('touchend',function(event){
+		endX=event.originalEvent.changedTouches[0].screenX;
+		endY=event.originalEvent.changedTouches[0].screenY;
+	if(startX-endX>50){
+    nextMusic();
+	}else if(endX-startX>50){
+    prevMusic();
+	}
+	});
 });
 
 // update progress bar width according to music current time
