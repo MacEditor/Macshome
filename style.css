@@ -40,7 +40,7 @@ body{
 }
 .wrapper{
   width: 380px;
-  padding: 25px 30px;
+  padding: 10px 15px;
   overflow: hidden;
   position: relative;
   border-radius: 15px;
@@ -91,9 +91,19 @@ body{
   overflow: hidden;
   margin-top: 25px;
   border-radius: 15px;
+	position: relative;
   border: 3px solid var(--outline);
 }
-.img-area img{
+.chunsik{
+  position: absolute;
+  bottom: 0;
+	right: 0;
+	width: 100px;
+	height: auto;
+	display: none;
+}
+.chunsik.paused{display: inline-block;}
+.img-area .cover-img{
   width: 100%;
   height: 100%;
   object-fit: cover;

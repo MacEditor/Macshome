@@ -1,5 +1,6 @@
 const wrapper = document.querySelector(".wrapper"),
-musicImg = wrapper.querySelector(".img-area img"),
+musicAni = wrapper.querySelector(".img-area .chunsik"),
+musicImg = wrapper.querySelector(".img-area .cover-img"),
 musicName = wrapper.querySelector(".song-details .name"),
 musicArtist = wrapper.querySelector(".song-details .artist"),
 playPauseBtn = wrapper.querySelector(".play-pause"),
@@ -31,6 +32,7 @@ function loadMusic(indexNumb){
 //play music function
 function playMusic(){
   wrapper.classList.add("paused");
+  musicAni.classList.add("paused");
   playPauseBtn.querySelector("i").innerText = "pause";
   mainAudio.play();
 }
@@ -38,6 +40,7 @@ function playMusic(){
 //pause music function
 function pauseMusic(){
   wrapper.classList.remove("paused");
+  musicAni.classList.remove("paused");
   playPauseBtn.querySelector("i").innerText = "play_arrow";
   mainAudio.pause();
 }
@@ -174,7 +177,7 @@ closemoreMusic.addEventListener("click", ()=>{
   moreMusicBtn.click();
 });
 
-const ulTag = wrapper.querySelector("ul");
+const ulTag = musicList.querySelector("ul");
 // let create li tags according to array length for list
 for (let i = 0; i < allMusic.length; i++) {
   //let's pass the song name, artist from the array
