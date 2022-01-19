@@ -39,6 +39,24 @@ let allMusic = [
     artist: "크래커",
     img: "music-5",
     src: "music-5"
+  },
+  {
+    name: "Only",
+    artist: "이하이",
+    img: "music-6",
+    src: "music-6"
+  },
+  {
+    name: "What a nice day to runaway",
+    artist: "Fudasca",
+    img: "music-7",
+    src: "music-7"
+  },
+  {
+    name: "원하고 원망하죠",
+    artist: "애즈원",
+    img: "music-8",
+    src: "music-8"
   }
   // like this paste it and remember to give comma after ending of this bracket }
   // {
