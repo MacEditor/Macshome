@@ -4,6 +4,7 @@
 	font-family: "gugi";
   src: url(font/Gugi-Regular.ttf);
 	font-style: normal;
+	unicode-range: U+AC00-U+D7A3;
 } /* "gugi", sans-serif; */
 @font-face{
 	font-family: "mochi";
@@ -23,7 +24,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "mochi", sans-serif;
+  font-family: "mochi", "gugi", sans-serif;
 }
 *::before, *::after{
   padding: 0;
@@ -373,8 +374,6 @@ ul li.playing{
   pointer-events: none;
   opacity: 1;
 }
-.comment,
-.comment span{font-family: "gugi", sans-serif;}
 .comment{
   color: var(--white);
   text-shadow:
