@@ -119,7 +119,7 @@ window.addEventListener("click", function(){
     var touch = event.touches[0];
     touchstartX = touch.clientX;
     touchstartY = touch.clientY;
-  }, false);
+  });
   musicCover.addEventListener('touchend', function(event) {
     if(event.touches.length == 0) {
       var touch = event.changedTouches[event.changedTouches.length - 1];
@@ -129,14 +129,12 @@ window.addEventListener("click", function(){
       touchoffsetX = touchendX - touchstartX;
       touchoffsetY = touchendY - touchstartY;
 
-      if(Math.abs(touchoffsetX) > 80 && Math.abs(touchoffsetY) <= 10) {
-        if(touchoffsetX < 0){
-          nextMusic();
-        }
-        else{
-          prevMusic();
-        }
+      if(Math.abs(touchstartX - touchendX) > 50){
+        nextMusic();
+      }else if(Math.abs(touchendX - touchstartX) > 50){
+        prevMusic();
       }
+
     }
   }, false);
 });
