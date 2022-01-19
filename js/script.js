@@ -1,4 +1,8 @@
 const wrapper = document.querySelector(".wrapper"),
+expandMore = wrapper.querySelector("#expand_more"),
+closeexpandMore = wrapper.querySelector("#popup_close"),
+popUp = wrapper.querySelector(".popup"),
+musicCover = wrapper.querySelector(".img-area"),
 musicAni1 = wrapper.querySelector(".img-area .chunsik"),
 musicAni2 = wrapper.querySelector(".song-details .chunsik"),
 musicImg = wrapper.querySelector(".img-area .cover-img"),
@@ -13,6 +17,14 @@ progressBar = progressArea.querySelector(".progress-bar"),
 musicList = wrapper.querySelector(".music-list"),
 moreMusicBtn = wrapper.querySelector("#more-music"),
 closemoreMusic = musicList.querySelector("#close");
+
+//popup toggle
+expandMore.addEventListener("click", ()=>{
+  popUp.classList.toggle("show");
+});
+closeexpandMore.addEventListener("click", ()=>{
+  expandMore.click();
+});
 
 // let musicIndex = Math.floor((Math.random() * allMusic.length) + 1);
 let musicIndex = 1;
@@ -87,37 +99,46 @@ nextBtn.addEventListener("click", ()=>{
 });
 
 //music touch event
-$(document).ready(function(){
-  var mstartX = 0, mendX = 0,mstartY = 0, mendY = 0;
-  $(".img-area").on('mousedown',function(event){
-    mstartX = event.pageX;
-    mstartY = event.pageY;
-  });
-  $(".img-area").on('mouseup',function(event){
-    mendX=event.pageX;
-    mendY=event.pageY;
+var mstartX = 0, mendX = 0,mstartY = 0, mendY = 0;
+musicCover.addEventListener('mousedown', (event) => {
+  mstartX = event.pageX;
+  mstartY = event.pageY;
+});
+musicCover.addEventListener('mouseup', (event) => {
+  mendX=event.pageX;
+  mendY=event.pageY;
 
   if(mstartX-mendX>50){
     nextMusic();
   }else if(mendX-mstartX>50){
     prevMusic();
   }
-  });
+});
+window.addEventListener("click", function(){
+  musicCover.addEventListener('touchstart', function(event) {
+    var touch = event.touches[0];
+    touchstartX = touch.clientX;
+    touchstartY = touch.clientY;
+  }, false);
+  musicCover.addEventListener('touchend', function(event) {
+    if(event.touches.length == 0) {
+      var touch = event.changedTouches[event.changedTouches.length - 1];
+      touchendX = touch.clientX;
+      touchendY = touch.clientY;
 
-  var startX,startY, endX,endY;
-	$(".img-area").on('touchstart',function(event){
-		startX = event.originalEvent.changedTouches[0].screenX;
-		startY = event.originalEvent.changedTouches[0].screenY;
-	});
-	$(".img-area").on('touchend',function(event){
-		endX=event.originalEvent.changedTouches[0].screenX;
-		endY=event.originalEvent.changedTouches[0].screenY;
-	if(startX-endX>50){
-    nextMusic();
-	}else if(endX-startX>50){
-    prevMusic();
-	}
-	});
+      touchoffsetX = touchendX - touchstartX;
+      touchoffsetY = touchendY - touchstartY;
+
+      if(Math.abs(touchoffsetX) > 80 && Math.abs(touchoffsetY) <= 10) {
+        if(touchoffsetX < 0){
+          nextMusic();
+        }
+        else{
+          prevMusic();
+        }
+      }
+    }
+  }, false);
 });
 
 // update progress bar width according to music current time
