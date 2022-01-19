@@ -114,29 +114,35 @@ musicCover.addEventListener('mouseup', (event) => {
     prevMusic();
   }
 });
+
 window.addEventListener("click", function(){
+
   musicCover.addEventListener('touchstart', function(event) {
     var touch = event.touches[0];
     touchstartX = touch.clientX;
     touchstartY = touch.clientY;
-  });
+  }, false);
+
   musicCover.addEventListener('touchend', function(event) {
     if(event.touches.length == 0) {
-      var touch = event.changedTouches[event.changedTouches.length - 1];
-      touchendX = touch.clientX;
-      touchendY = touch.clientY;
+        var touch = event.changedTouches[event.changedTouches.length - 1];
+        touchendX = touch.clientX;
+        touchendY = touch.clientY;
 
-      touchoffsetX = touchendX - touchstartX;
-      touchoffsetY = touchendY - touchstartY;
+        touchoffsetX = touchendX - touchstartX;
+        touchoffsetY = touchendY - touchstartY;
 
-      if(Math.abs(touchstartX - touchendX) > 50){
-        nextMusic();
-      }else if(Math.abs(touchendX - touchstartX) > 50){
-        prevMusic();
-      }
-
+        if(Math.abs(touchoffsetX) >= 80){
+            if(touchoffsetX < 0){
+                nextMusic();
+            }
+            else{
+                prevMusic();
+            }
+        }
     }
   }, false);
+
 });
 
 // update progress bar width according to music current time
