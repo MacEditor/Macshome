@@ -4,6 +4,7 @@ closeexpandMore = wrapper.querySelector("#popup_close"),
 popUp = wrapper.querySelector(".popup"),
 musicCover = wrapper.querySelector(".img-area"),
 musicAni1 = wrapper.querySelector(".img-area .chunsik"),
+songDetails = wrapper.querySelector(".song-details"),
 musicAni2 = wrapper.querySelector(".song-details .chunsik"),
 musicImg = wrapper.querySelector(".img-area .cover-img"),
 musicName = wrapper.querySelector(".song-details .name"),
@@ -16,7 +17,18 @@ progressArea = wrapper.querySelector(".progress-area"),
 progressBar = progressArea.querySelector(".progress-bar"),
 musicList = wrapper.querySelector(".music-list"),
 moreMusicBtn = wrapper.querySelector("#more-music"),
-closemoreMusic = musicList.querySelector("#close");
+closemoreMusic = musicList.querySelector("#close"),
+comment = document.querySelector(".comment");
+
+//start_animation
+wrapper.classList.add("ani");
+musicCover.classList.add("ani");
+songDetails.classList.add("ani");
+progressArea.classList.add("ani");
+playPauseBtn.classList.add("ani");
+prevBtn.classList.add("ani");
+nextBtn.classList.add("ani");
+comment.classList.add("ani");
 
 //popup toggle
 expandMore.addEventListener("click", ()=>{

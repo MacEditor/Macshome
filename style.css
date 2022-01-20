@@ -19,6 +19,15 @@
 		opacity: 1;
 	}
 }
+@keyframes jelly_ani{
+	0%{transform: scale(1,1);}
+	30%{transform: scale(1.25,0.75);}
+	40%{transform: scale(0.75,1.25);}
+	50%{transform: scale(1.15,0.85);}
+	65%{transform: scale(0.95,1.05);}
+	75%{transform: scale(1.05,0.95);}
+	100%{transform: scale(1,1);}
+}
 
 *{
   margin: 0;
@@ -47,6 +56,28 @@ body{
   background: url(chunsik.jpg) no-repeat center center;
   background-size : cover;
 }
+.wrapper,
+.img-area,
+.song-details,
+.progress-area,
+.controls #prev,
+.controls .play-pause,
+.controls #next,
+.comment{
+	opacity: 0;
+	transform: translateY(50px);
+}
+.wrapper.ani,
+.img-area.ani,
+.song-details.ani,
+.progress-area.ani,
+.controls #prev.ani,
+.controls .play-pause.ani,
+.controls #next.ani,
+.comment.ani{
+	opacity: 1;
+	transform: translateY(0);
+}
 .wrapper{
   width: 380px;
   padding: 10px 15px;
@@ -58,6 +89,7 @@ body{
   box-shadow: 5px 5px 0 var(--greyshadow);
   z-index: 1;
 }
+.wrapper.ani{transition: all .7s ease-in-out;}
 .wrapper::before{
   content: '';
   position: absolute;
@@ -137,6 +169,10 @@ body{
 	-ms-user-select: none;
 	user-select: none;
 }
+.img-area.ani{
+	transition: all .7s ease-in-out;
+	transition-delay: .2s;
+}
 .chunsik{
 	display: none;
 	pointer-events: none;
@@ -180,6 +216,10 @@ body{
   text-align: center;
   margin: 30px 0;
 }
+.song-details.ani{
+	transition: all .7s ease-in-out;
+	transition-delay: .4s;
+}
 .song-details .chunsik2{
 	position: absolute;
 	top: 0;
@@ -204,6 +244,10 @@ body{
   border: 3px solid var(--outline);
   padding: 2px 0;
   cursor: pointer;
+}
+.progress-area.ani{
+	transition: all .7s ease-in-out;
+	transition-delay: .5s;
 }
 .progress-area .progress-bar{
   height: inherit;
@@ -258,11 +302,15 @@ body{
   text-shadow: 0 0 0 var(--outline);
   border: 3px solid var(--outline);
 }
-.controls #prev{
-  margin-right: -13px;
+.controls #prev{margin-right: -13px;}
+.controls #next{margin-left: -13px;}
+.controls #prev.ani{
+	transition: all .7s ease-in-out;
+	transition-delay: .6s;
 }
-.controls #next{
-  margin-left: -13px;
+.controls #next.ani{
+	transition: all .7s ease-in-out;
+	transition-delay: .6s;
 }
 .controls .play-pause{
   height: 54px;
@@ -276,6 +324,10 @@ body{
   border: 3px solid var(--outline);
   box-shadow: 3px 3px 0px var(--greyshadow);
   position: relative;
+}
+.controls .play-pause.ani{
+	transition: all .7s ease-in-out;
+	transition-delay: .4s;
 }
 .play-pause::after,
 .play-pause::before{
@@ -408,7 +460,17 @@ ul li.playing{
   5px 5px 0 var(--greyshadow);
   font-size: 25px;
   margin-top: 30px;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
+.comment.ani{
+	transition: all .7s ease-in-out;
+	transition-delay: .6s;
+}
+.comment:hover{animation: jelly_ani .75s ease-in-out;}
 .comment span{
   color: var(--pink);
   font-size: 35px;
