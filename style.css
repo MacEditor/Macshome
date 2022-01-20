@@ -28,6 +28,38 @@
 	75%{transform: scale(1.05,0.95);}
 	100%{transform: scale(1,1);}
 }
+@keyframes shake_ani{
+	0%{transform: rotateY(0deg) rotate(0); opacity: 1;}
+	30%{transform: rotate(45deg); opacity: 1;}
+	40%{transform: rotate(40deg); opacity: 1;}
+	50%{transform: rotate(45deg); opacity: 1;}
+	60%{transform: rotate(40deg); opacity: 1;}
+	70%{transform: scale(1,1) rotate(45deg); opacity: 1;}
+	95%{transform: scale(.1,.1) rotate(45deg); opacity: .25;}
+	100%{transform: scale(0,0) rotate(45deg); opacity: 0;}
+}
+@keyframes message_ani{
+	0%{
+		transform: translateY(50px);
+		opacity: 0;
+	}
+	30%{
+		transform: translateY(0);
+		opacity: 1;
+	}
+	35%{transform: scale(1,1); opacity: 1;}
+	45%{transform: scale(1.25,0.75); opacity: 1;}
+	55%{transform: scale(0.75,1.25); opacity: 1;}
+	65%{transform: scale(1.15,0.85); opacity: 1;}
+	75%{transform: scale(0.95,1.05); opacity: 1;}
+	85%{transform: scale(1.05,0.95); opacity: 1;}
+	95%{transform: scale(1,1); opacity: 1;}
+	96%{opacity: .8;}
+	97%{opacity: .6;}
+	98%{opacity: .4;}
+	99%{transform: scale(.1,.1); opacity: .2;}
+	100%{transform: scale(0,0); opacity: 0;}
+}
 
 *{
   margin: 0;
@@ -56,6 +88,7 @@ body{
   background: url(chunsik.jpg) no-repeat center center;
   background-size : cover;
 }
+.wrap{position: relative;}
 .wrapper,
 .img-area,
 .song-details,
@@ -77,6 +110,44 @@ body{
 .comment.ani{
 	opacity: 1;
 	transform: translateY(0);
+}
+.message{
+	position: absolute;
+	top: -30px;
+	left: 15px;
+	z-index: 5;
+	color: var(--white);
+  text-shadow:
+  -2px -2px 0 var(--outline),
+  2px -2px 0 var(--outline),
+  -2px 2px 0 var(--outline),
+  2px 2px 0 var(--outline);
+	opacity: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	animation: message_ani 1.8s ease-in-out;
+	animation-delay: 1.7s;
+}
+.heart{
+	position: absolute;
+	top: -50px;
+	left: 40px;
+	z-index: 3;
+	color: red;
+	opacity: 0;
+  text-shadow:
+  -2px -2px 0 var(--outline),
+  2px -2px 0 var(--outline),
+  -2px 2px 0 var(--outline),
+  2px 2px 0 var(--outline);
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	animation: shake_ani 1.7s ease-in-out;
+	animation-delay: 2.1s;
 }
 .wrapper{
   width: 360px;
