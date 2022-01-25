@@ -136,7 +136,7 @@ body{
 	position: absolute;
 	top: -50px;
 	left: 40px;
-	z-index: 3;
+	z-index: 4;
 	color: red;
 	opacity: 0;
   text-shadow:
@@ -201,32 +201,40 @@ body{
 .volume_bar{
 	position: absolute;
 	opacity: 0;
-	top: 60px;
-	right: -30px;
+	top: 30px;
+	right: 0;
 	width: 30px;
 	height: 30px;
 	border-radius: 100px;
 	background-color: var(--skin);
   border: 3px solid var(--outline);
-	box-shadow: -5px 5px 0 var(--greyshadow);
+	box-shadow: 5px 5px 0 var(--greyshadow);
 	z-index: 0;
-	transform: rotate(-90deg);
 	overflow: hidden;
 	visibility: hidden;
 	transition:
-	opacity .25s ease-in-out,
-	right .3s ease-in-out,
+	opacity .35s ease-in-out,
+	top .3s ease-in-out,
 	width .35s ease-in-out,
 	height .35s ease-in-out,
-	z-index .3s ease-in-out;
+	z-index .4s ease-in-out;
+}
+.volume_bar.show{
+	opacity: 1;
+	top: -50px;
+	width: 50%;
+	height: 35px;
+	border-radius: 20px;
+	visibility: visible;
+	z-index: 3;
 }
 .volume_bar::before{
 	content: '';
 	position: absolute;
 	z-index: -1;
-	right: 10px;
+	left: 10px;
 	top: 50%;
-	transform: translateY(-50%) rotate(90deg);
+	transform: translateY(-50%);
 	background: url(chunsik3.png) no-repeat center center;
 	background-size: cover;
 	width: 20px;
@@ -235,15 +243,6 @@ body{
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-}
-.volume_bar.show{
-	opacity: 1;
-	right: -100px;
-	width: 150px;
-	height: 35px;
-	border-radius: 20px;
-	visibility: visible;
-	z-index: 15;
 }
 .volume_bar input{
 	position: absolute;
@@ -256,6 +255,7 @@ body{
 	z-index: 2;
 	opacity: 0;
 	cursor: pointer;
+	transform: rotateY(180deg);
 }
 .volume_bar #volume_skin{
 	width: 100%;
@@ -263,18 +263,18 @@ body{
 	background-color: var(--brown);
 	position: absolute;
 	top: 0;
-	left: 0;
+	right: 0;
 	z-index: 1;
 	transition: width .1s ease;
 }
 .volume_bar #volume_level{
 	position: absolute;
-	top: 25%;
-	left: 5%;
+	top: 48%;
+	right: 10px;
+	transform: translateY(-50%);
 	font-size: 10px;
 	color: white;
 	text-align: center;
-	transform: rotate(90deg);
 	z-index: 1;
 }
 .popup{
