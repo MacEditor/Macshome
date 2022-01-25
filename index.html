@@ -12,13 +12,20 @@
 </head>
 <body>
   <div class="wrap">
-    <span class="message material-icons">email</span>
-    <span class="heart material-icons">favorite</span>
+    <span class="message material-icons select_none">email</span>
+    <span class="heart material-icons select_none">favorite</span>
+
+    <div class="volume_bar">
+      <input type="range" min="0" max="100" value="100" onchange="volume_change()" id="volume">
+      <span id="volume_skin"></span>
+      <p id="volume_level" class="select_none">100</p>
+    </div>
+
     <div class="wrapper">
       <div class="top-bar">
-        <i id="expand_more" class="material-icons">expand_more</i>
-        <p>Sohee <span>Player♡</span></p>
-        <i class="material-icons">more_horiz</i>
+        <span id="expand_more" class="material-icons">notifications</span>
+        <p class="select_none">Sohee <span>Player♡</span></p>
+        <span id="volume_control" class="material-icons">music_note</span>
       </div>
       <div class="popup">
         <i id="popup_close" class="material-icons">close</i>
@@ -32,7 +39,7 @@
           신청곡 받아요~!!😜
         </p>
       </div>
-      <div class="img-area">
+      <div class="img-area select_none">
         <div class="chunsik chunsik1"></div>
         <img class="cover-img" src="" alt="">
       </div>
@@ -77,7 +84,7 @@
       </div>
     </div>
   </div>
-  <p class="comment">소희 <span>이쁜꿈</span>만꾸자 ㅎㅅㅎ</p>
+  <p class="comment select_none">소희 <span>이쁜꿈</span>만꾸자 ㅎㅅㅎ</p>
 
   <script src="js/music-list.js"></script>
   <script src="js/script.js"></script>
