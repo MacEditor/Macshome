@@ -601,7 +601,7 @@ ul li.playing{
   2px 2px 0 var(--outline),
   5px 5px 0 var(--greyshadow);
   font-size: 25px;
-  margin-top: 30px;
+  margin-top: 10px;
 	cursor: pointer;
 }
 .comment.ani{
