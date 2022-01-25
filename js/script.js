@@ -1,5 +1,10 @@
 const wrapper = document.querySelector(".wrapper"),
+volumeBar = document.querySelector('.volume_bar'),
+volume = volumeBar.querySelector('#volume'),
+volumeSkin = volumeBar.querySelector('#volume_skin'),
+volumeLevel = volumeBar.querySelector('#volume_level'),
 expandMore = wrapper.querySelector("#expand_more"),
+volumeControl = wrapper.querySelector("#volume_control"),
 closeexpandMore = wrapper.querySelector("#popup_close"),
 popUp = wrapper.querySelector(".popup"),
 musicCover = wrapper.querySelector(".img-area"),
@@ -52,6 +57,18 @@ function loadMusic(indexNumb){
   musicArtist.innerText = allMusic[indexNumb - 1].artist;
   musicImg.src = `images/${allMusic[indexNumb - 1].src}.jpg`;
   mainAudio.src = `songs/${allMusic[indexNumb - 1].src}.mp3`;
+}
+
+//volume show
+volumeControl.addEventListener("click", ()=>{
+  volumeBar.classList.toggle("show");
+});
+
+//change volume
+function volume_change(){
+	mainAudio.volume = volume.value / 100;
+  volumeSkin.style.width = volume.value + "%";
+	volumeLevel.innerHTML = volume.value;
 }
 
 //play music function
