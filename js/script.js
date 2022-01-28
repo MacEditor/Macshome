@@ -145,6 +145,10 @@ musicCover.addEventListener('mouseup', (event) => {
 });
 
 window.addEventListener("click", function(){
+// music auto paused
+  if(mainAudio.paused){
+    pauseMusic();
+  }
 
   musicCover.addEventListener('touchstart', function(event) {
     var touch = event.touches[0];

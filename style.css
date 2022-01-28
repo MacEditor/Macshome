@@ -265,7 +265,7 @@ body{
 	top: 0;
 	right: 0;
 	z-index: 1;
-	transition: width .1s ease;
+	transition: width .025s linear;
 }
 .volume_bar #volume_level{
 	position: absolute;
