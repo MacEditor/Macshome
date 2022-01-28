@@ -98,7 +98,9 @@ function prevMusic(){
     //if musicIndex is less than 1 then musicIndex will be the array length so the last music play
     musicIndex < 1 ? musicIndex = allMusic.length : musicIndex = musicIndex;
     loadMusic(musicIndex);
-    playMusic();
+    mainAudio.oncanplaythrough = function(){  // 로드 완료되면 실행
+      playMusic();
+    }
     playingSong();
   }
 }
@@ -112,7 +114,9 @@ function nextMusic(){
     //if musicIndex is greater than array length then musicIndex will be 1 so the first music play
     musicIndex > allMusic.length ? musicIndex = 1 : musicIndex = musicIndex;
     loadMusic(musicIndex);
-    playMusic();
+    mainAudio.oncanplaythrough = function(){  // 로드 완료되면 실행
+      playMusic();
+    }
     playingSong();
   }
 }
@@ -135,8 +139,8 @@ nextBtn.addEventListener("click", ()=>{
   nextMusic();
 });
 
-//music touch event
-var mstartX = 0, mendX = 0,mstartY = 0, mendY = 0;
+//music Desktop touch event
+var mstartX = 0,mendX = 0,mstartY = 0,mendY = 0;
 musicCover.addEventListener('mousedown', (event) => {
   mstartX = event.pageX;
   mstartY = event.pageY;
@@ -151,40 +155,20 @@ musicCover.addEventListener('mouseup', (event) => {
     prevMusic();
   }
 });
-
-window.addEventListener("click", function(){
-// music auto paused
-  if(mainAudio.paused){
-    pauseMusic();
+//music mobile touch event
+function touch_start(event){
+  touchstartX = event.touches[0].pageX;
+}
+function touch_end(event){
+  touchendX = event.changedTouches[0].pageX;
+  if(touchstartX-touchendX>50){
+    nextMusic();
+  }else if(touchendX-touchstartX>50){
+    prevMusic();
   }
-
-  musicCover.addEventListener('touchstart', function(event) {
-    var touch = event.touches[0];
-    touchstartX = touch.clientX;
-    touchstartY = touch.clientY;
-  }, false);
-
-  musicCover.addEventListener('touchend', function(event) {
-    if(event.touches.length == 0) {
-        var touch = event.changedTouches[event.changedTouches.length - 1];
-        touchendX = touch.clientX;
-        touchendY = touch.clientY;
-
-        touchoffsetX = touchendX - touchstartX;
-        touchoffsetY = touchendY - touchstartY;
-
-        if(Math.abs(touchoffsetX) >= 80){
-            if(touchoffsetX < 0){
-                nextMusic();
-            }
-            else{
-                prevMusic();
-            }
-        }
-    }
-  }, false);
-
-});
+}
+musicCover.addEventListener('touchstart', touch_start);
+musicCover.addEventListener('touchend', touch_end);
 
 // update progress bar width according to music current time
 mainAudio.addEventListener("timeupdate", (e)=>{
