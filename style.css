@@ -1,0 +1,615 @@
+@charset "utf-8";
+
+@font-face{
+	font-family: "gugi";
+  src: url(font/Gugi-Regular.ttf);
+	font-style: normal;
+	unicode-range: U+AC00-U+D7A3;
+} /* "gugi", sans-serif; */
+@font-face{
+	font-family: "mochi";
+  src: url(font/MochiyPopPOne-Regular.ttf);
+	font-style: normal;
+} /* "mochi", sans-serif; */
+@keyframes start_ani{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+@keyframes jelly_ani{
+	0%{transform: scale(1,1);}
+	30%{transform: scale(1.25,0.75);}
+	40%{transform: scale(0.75,1.25);}
+	50%{transform: scale(1.15,0.85);}
+	65%{transform: scale(0.95,1.05);}
+	75%{transform: scale(1.05,0.95);}
+	100%{transform: scale(1,1);}
+}
+@keyframes shake_ani{
+	0%{transform: rotateY(0deg) rotate(0); opacity: 1;}
+	30%{transform: rotate(45deg); opacity: 1;}
+	40%{transform: rotate(40deg); opacity: 1;}
+	50%{transform: rotate(45deg); opacity: 1;}
+	60%{transform: rotate(40deg); opacity: 1;}
+	70%{transform: scale(1,1) rotate(45deg); opacity: 1;}
+	95%{transform: scale(.1,.1) rotate(45deg); opacity: .25;}
+	100%{transform: scale(0,0) rotate(45deg); opacity: 0;}
+}
+@keyframes message_ani{
+	0%{
+		transform: translateY(50px);
+		opacity: 0;
+	}
+	30%{
+		transform: translateY(0);
+		opacity: 1;
+	}
+	35%{transform: scale(1,1); opacity: 1;}
+	45%{transform: scale(1.25,0.75); opacity: 1;}
+	55%{transform: scale(0.75,1.25); opacity: 1;}
+	65%{transform: scale(1.15,0.85); opacity: 1;}
+	75%{transform: scale(0.95,1.05); opacity: 1;}
+	85%{transform: scale(1.05,0.95); opacity: 1;}
+	95%{transform: scale(1,1); opacity: 1;}
+	96%{opacity: .8;}
+	97%{opacity: .6;}
+	98%{opacity: .4;}
+	99%{transform: scale(.1,.1); opacity: .2;}
+	100%{transform: scale(0,0); opacity: 0;}
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "mochi", "gugi", sans-serif;
+}
+*::before, *::after{
+  padding: 0;
+  margin: 0;
+}
+:root{
+  --pink: #f39c89;
+  --brown: #975f00;
+  --white: white;
+  --skin: #ffd284;
+  --outline: #282013;
+  --greyshadow: #b39068;
+}
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: url(chunsik.jpg) no-repeat center center;
+  background-size : cover;
+}
+.select_none{
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.wrap{position: relative;}
+.wrapper,
+.img-area,
+.song-details,
+.progress-area,
+.controls #prev,
+.controls .play-pause,
+.controls #next,
+.comment{
+	opacity: 0;
+	transform: translateY(50px);
+}
+.wrapper.ani,
+.img-area.ani,
+.song-details.ani,
+.progress-area.ani,
+.controls #prev.ani,
+.controls .play-pause.ani,
+.controls #next.ani,
+.comment.ani{
+	opacity: 1;
+	transform: translateY(0);
+}
+.message{
+	position: absolute;
+	top: -30px;
+	left: 15px;
+	z-index: 5;
+	color: var(--white);
+  text-shadow:
+  -2px -2px 0 var(--outline),
+  2px -2px 0 var(--outline),
+  -2px 2px 0 var(--outline),
+  2px 2px 0 var(--outline);
+	opacity: 0;
+	animation: message_ani 1.8s ease-in-out;
+	animation-delay: 1.7s;
+}
+.heart{
+	position: absolute;
+	top: -50px;
+	left: 40px;
+	z-index: 4;
+	color: red;
+	opacity: 0;
+  text-shadow:
+  -2px -2px 0 var(--outline),
+  2px -2px 0 var(--outline),
+  -2px 2px 0 var(--outline),
+  2px 2px 0 var(--outline);
+	animation: shake_ani 1.7s ease-in-out;
+	animation-delay: 2.1s;
+}
+.wrapper{
+  width: 360px;
+  padding: 10px 15px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 15px;
+  border: 3px solid var(--outline);
+  background: var(--skin);
+  box-shadow: 5px 5px 0 var(--greyshadow);
+  z-index: 1;
+}
+.wrapper.ani{transition: all .7s ease-in-out;}
+.wrapper::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background-color: var(--brown);
+  z-index: -1;
+}
+.wrapper .material-icons{cursor: pointer;}
+.top-bar, .progress-area .song-timer,
+.controls, .music-list .header, .music-list ul li{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+}
+.top-bar .material-icons{
+  font-size: 30px;
+  color: var(--white);
+  text-shadow:
+  -2px -2px 0 var(--outline),
+  2px -2px 0 var(--outline),
+  -2px 2px 0 var(--outline),
+  2px 2px 0 var(--outline);
+}
+.top-bar .material-icons:first-child{margin-left: -7px;}
+.top-bar p{
+  font-size: 18px;
+  margin-left: -3px;
+  color: var(--white);
+  text-shadow:
+  -2px -2px 0 var(--outline),
+  2px -2px 0 var(--outline),
+  -2px 2px 0 var(--outline),
+  2px 2px 0 var(--outline);
+}
+.top-bar p span{color: var(--pink);}
+.volume_bar{
+	position: absolute;
+	opacity: 0;
+	top: 30px;
+	right: 0;
+	width: 30px;
+	height: 30px;
+	border-radius: 100px;
+	background-color: var(--skin);
+  border: 3px solid var(--outline);
+	box-shadow: 5px 5px 0 var(--greyshadow);
+	z-index: 0;
+	overflow: hidden;
+	visibility: hidden;
+	transition:
+	opacity .35s ease-in-out,
+	top .3s ease-in-out,
+	width .35s ease-in-out,
+	height .35s ease-in-out,
+	z-index .4s ease-in-out;
+}
+.volume_bar.show{
+	opacity: 1;
+	top: -50px;
+	width: 50%;
+	height: 35px;
+	border-radius: 20px;
+	visibility: visible;
+	z-index: 3;
+}
+.volume_bar::before{
+	content: '';
+	position: absolute;
+	z-index: -1;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: url(chunsik3.png) no-repeat center center;
+	background-size: cover;
+	width: 20px;
+	height: 20px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.volume_bar input{
+	position: absolute;
+	top: 0;
+	left: 0;
+	outline: none;
+	border: none;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	opacity: 0;
+	cursor: pointer;
+	transform: rotateY(180deg);
+}
+.volume_bar #volume_skin{
+	width: 100%;
+	height: 100%;
+	background-color: var(--brown);
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+	transition: width .025s linear;
+}
+.volume_bar #volume_level{
+	position: absolute;
+	top: 48%;
+	right: 10px;
+	transform: translateY(-50%);
+	font-size: 10px;
+	color: white;
+	text-align: center;
+	z-index: 1;
+}
+.popup{
+  position: absolute;
+  background: rgba(255,255,255,0.8);
+  width: 100%;
+  left: 0;
+  top: -55%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+  padding: 15px 30px;
+  border-radius: 0 0 15px 15px;
+  border-bottom: 3px solid var(--outline);
+  transition: all 0.15s ease-out;
+}
+.popup i{float: right;}
+.popup p{
+	text-align: center;
+	margin-top : 30px;
+}
+.popup.show{
+  top: 0;
+  opacity: 1;
+  pointer-events: auto;
+}
+.img-area{
+  width: 100%;
+  height: 256px;
+  overflow: hidden;
+  margin-top: 25px;
+  border-radius: 15px;
+	position: relative;
+	cursor: grab;
+  border: 3px solid var(--outline);
+}
+.img-area.ani{
+	transition: all .7s ease-in-out;
+	transition-delay: .2s;
+}
+.chunsik{
+	display: none;
+	pointer-events: none;
+}
+.chunsik.paused{
+	display: inline-block;
+	animation: start_ani 1s ease-in-out;
+}
+.chunsik1{
+  position: absolute;
+  bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100px;
+}
+.chunsik1 img{
+	width: auto;
+	height: 100%;
+	display: block;
+}
+.chunsik1::before,
+.chunsik1::after{
+	content : '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url(chunsik2.gif) no-repeat -5px 10px;
+	background-size: contain;
+}
+.chunsik1::after{transform: rotateY(180deg);}
+.img-area .cover-img{
+  width: 100%;
+  height: 100%;
+	pointer-events: none;
+  object-fit: cover;
+}
+.song-details{
+	position: relative;
+  text-align: center;
+  margin: 30px 0;
+}
+.song-details.ani{
+	transition: all .7s ease-in-out;
+	transition-delay: .4s;
+}
+.song-details .chunsik2{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: auto;
+	height: 100px;
+}
+.song-details p{color: var(--outline);}
+.song-details .name{
+  font-size: 21px;
+}
+.song-details .artist{
+  font-size: 18px;
+  opacity: 0.9;
+  line-height: 35px;
+}
+.progress-area{
+  height: 6px;
+  width: 100%;
+  border-radius: 50px;
+  background: var(--white);
+  border: 3px solid var(--outline);
+  padding: 2px 0;
+  cursor: pointer;
+}
+.progress-area.ani{
+	transition: all .7s ease-in-out;
+	transition-delay: .5s;
+}
+.progress-area .progress-bar{
+  height: inherit;
+  width: 0%;
+  position: relative;
+  border-radius: inherit;
+  background-color: var(--pink);
+  transform: translateY(-50%);
+}
+.progress-bar::before{
+  content: "";
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  top: 50%;
+  right: -5px;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%);
+  background: inherit;
+  transition: opacity 0.2s ease;
+}
+.progress-area:hover .progress-bar::before{
+  opacity: 1;
+  pointer-events: auto;
+}
+.progress-area .song-timer{
+  margin-top: 2px;
+}
+.song-timer span{
+  font-size: 13px;
+  color: var(--outline);
+}
+.controls{
+  margin: 40px 0 5px 0;
+}
+.controls i{
+  font-size: 28px;
+  user-select: none;
+  background: var(--outline);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.controls i:nth-child(2),
+.controls i:nth-child(4){
+  border-radius: 100%;
+  font-size: 43px;
+  box-shadow: inset 0 0 0 100px var(--pink);
+  text-shadow: 0 0 0 var(--outline);
+  border: 3px solid var(--outline);
+}
+.controls #prev{margin-right: -13px;}
+.controls #next{margin-left: -13px;}
+.controls #prev.ani{
+	transition: all .7s ease-in-out;
+	transition-delay: .6s;
+}
+.controls #next.ani{
+	transition: all .7s ease-in-out;
+	transition-delay: .6s;
+}
+.controls .play-pause{
+  height: 54px;
+  width: 54px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--white);
+  border: 3px solid var(--outline);
+  box-shadow: 3px 3px 0px var(--greyshadow);
+  position: relative;
+}
+.controls .play-pause.ani{
+	transition: all .7s ease-in-out;
+	transition-delay: .4s;
+}
+.play-pause::after,
+.play-pause::before{
+  position: absolute;
+  content: "";
+  top: -15px;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background-color: var(--outline);
+}
+.play-pause::after{right : 5px;}
+.play-pause::before{left : 5px;}
+.play-pause .line{
+  position: absolute;
+  height: 3px;
+  width: 15px;
+  z-index: 5;
+  background-color: var(--outline);
+}
+.play-pause .line1{
+  top : 7px;
+  right : -13px;
+  transform: rotate(-30deg);
+}
+.play-pause .line2{
+  top : 7px;
+  left : -13px;
+  transform: rotate(30deg);
+}
+.play-pause .line3{
+  bottom : 7px;
+  left : -13px;
+  transform: rotate(-30deg);
+}
+.play-pause .line4{
+  bottom : 7px;
+  right : -13px;
+  transform: rotate(30deg);
+}
+.play-pause i{
+  height: 43px;
+  width: 43px;
+  line-height: 43px;
+  text-align: center;
+  background: inherit;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: absolute;
+  background-color: var(--outline);
+}
+
+.music-list{
+  position: absolute;
+  background: rgba(255,255,255,0.8);
+  width: 100%;
+  left: 0;
+  bottom: -55%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+  padding: 15px 30px;
+  border-radius: 15px 15px 0 0;
+  border-top: 3px solid var(--outline);
+  transition: all 0.15s ease-out;
+}
+.music-list.show{
+  bottom: 0;
+  opacity: 1;
+  pointer-events: auto;
+}
+.header .row{
+  display: flex;
+  align-items: center;
+  font-size: 19px;
+  color: var(--outline);
+}
+.header .row i{
+  cursor: default;
+}
+.header .row span{
+  margin-left: 5px;
+}
+.header #close{
+  font-size: 22px;
+  color: var(--outline);
+}
+.music-list ul{
+  margin: 10px 0;
+  max-height: 260px;
+  overflow: auto;
+}
+.music-list ul::-webkit-scrollbar{
+  width: 0px;
+}
+.music-list ul li{
+  list-style: none;
+  display: flex;
+  cursor: pointer;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  color: var(--outline);
+  opacity: 0.5;
+  border-bottom: 1px solid #E5E5E5;
+}
+.music-list ul li:last-child{
+  border-bottom: 0px;
+}
+.music-list ul li .row span{
+  font-size: 17px;
+}
+.music-list ul li .row p{
+  opacity: 0.9;
+}
+ul li .audio-duration{
+  font-size: 16px;
+}
+ul li.playing{
+  pointer-events: none;
+  opacity: 1;
+}
+.comment{
+  color: var(--white);
+  text-shadow:
+  -2px -2px 0 var(--outline),
+  2px -2px 0 var(--outline),
+  -2px 2px 0 var(--outline),
+  2px 2px 0 var(--outline),
+  5px 5px 0 var(--greyshadow);
+  font-size: 25px;
+  margin-top: 10px;
+	cursor: pointer;
+}
+.comment.ani{
+	transition: all .7s ease-in-out;
+	transition-delay: .6s;
+}
+.comment:hover{animation: jelly_ani .75s ease-in-out;}
+.comment span{
+  color: var(--pink);
+  font-size: 35px;
+}

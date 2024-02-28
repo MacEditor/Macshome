@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta property="og:title" content="소똘이 화이팅!!" />
+  <meta property="og:description" content="소똘이 감성 플레이어😉" />
+  <meta property="og:image" content="chunsik.jpg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sohee Player</title>
+  <link rel="stylesheet" href="style.css?after">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+  <div class="wrap">
+    <span class="message material-icons select_none">email</span>
+    <span class="heart material-icons select_none">favorite</span>
+
+    <div class="volume_bar">
+      <input type="range" min="0" max="100" value="100" onchange="volume_change()" id="volume">
+      <span id="volume_skin"></span>
+      <p id="volume_level" class="select_none">100</p>
+    </div>
+
+    <div class="wrapper">
+      <div class="top-bar">
+        <span id="expand_more" class="material-icons select_none">notifications</span>
+        <p class="select_none">Sohee <span>Player♡</span></p>
+        <span id="volume_control" class="material-icons select_none">music_note</span>
+      </div>
+      <div class="popup">
+        <i id="popup_close" class="material-icons">close</i>
+        <p>
+          너가 행복하면 그거면 다 괜찮아
+        </p>
+      </div>
+      <div class="img-area select_none">
+        <div class="chunsik chunsik1"></div>
+        <img class="cover-img" src="" alt="">
+      </div>
+      <div class="song-details">
+        <img src="chunsik.gif" alt="#chunsik_ani" class="chunsik chunsik2">
+        <p class="name"></p>
+        <p class="artist"></p>
+      </div>
+      <div class="progress-area">
+        <div class="progress-bar">
+          <audio id="main-audio" src=""></audio>
+        </div>
+        <div class="song-timer">
+          <span class="current-time">0:00</span>
+          <span class="max-duration">0:00</span>
+        </div>
+      </div>
+      <div class="controls">
+        <i id="repeat-plist" class="material-icons" title="Playlist looped">repeat</i>
+        <i id="prev" class="material-icons">skip_previous</i>
+        <div class="play-pause">
+          <i class="material-icons play">play_arrow</i>
+          <span class="line line1"></span>
+          <span class="line line2"></span>
+          <span class="line line3"></span>
+          <span class="line line4"></span>
+        </div>
+        <i id="next" class="material-icons">skip_next</i>
+        <i id="more-music" class="material-icons">queue_music</i>
+      </div>
+      <div class="music-list">
+        <div class="header">
+          <div class="row">
+            <i class= "list material-icons">queue_music</i>
+            <span>Music list</span>
+          </div>
+          <i id="close" class="material-icons">close</i>
+        </div>
+        <ul>
+          <!-- here li list are coming from js -->
+        </ul>
+      </div>
+    </div>
+  </div>
+  <p class="comment select_none">아프지 <span>말자</span>😉 항상 고마웠어</p>
+
+  <script src="js/music-list.js"></script>
+  <script src="js/script.js"></script>
+
+</body>
+</html>
